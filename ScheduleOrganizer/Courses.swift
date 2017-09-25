@@ -11,8 +11,21 @@ typealias SectionName = String
 typealias MinuteFromMidnight = Int
 typealias SectionTimeSlot = (section: Section, slot: TimeSlot)
 
-enum DayOfWeek: String {
-    case sunday = "Sun", monday = "Mon", tuesday = "Tue", wednesday = "Wed", thursday = "Thu", friday = "Fri", saturday = "Sat"
+enum DayOfWeek: Int {
+    case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+    
+    init?(abbreviation: String) {
+        switch abbreviation {
+        case "Sun": self = .sunday
+        case "Mon": self = .monday
+        case "Tue": self = .tuesday
+        case "Wed": self = .wednesday
+        case "Thu": self = .thursday
+        case "Fri": self = .friday
+        case "Sat": self = .saturday
+        default: return nil
+        }
+    }
 }
 
 struct Alternation {
@@ -75,4 +88,14 @@ extension Section: Hashable {
         return lhs.courseName == rhs.courseName && lhs.category == rhs.category && lhs.sectionName == rhs.sectionName
     }
     var hashValue: Int { return courseName.hashValue ^ category.hashValue ^ sectionName.hashValue }
+}
+extension Alternation: Hashable {
+    static func ==(lhs: Alternation, rhs: Alternation) -> Bool { return lhs.cycle == rhs.cycle && lhs.start == rhs.start }
+    var hashValue: Int { return cycle.hashValue ^ start.hashValue }
+}
+extension TimeSlot: Hashable {
+    static func ==(lhs: TimeSlot, rhs: TimeSlot) -> Bool {
+        return lhs.alternation == rhs.alternation && lhs.day == rhs.day && lhs.time == rhs.time
+    }
+    var hashValue: Int { return alternation.hashValue ^ day.hashValue ^ time.lowerBound.hashValue ^ time.upperBound.hashValue }
 }

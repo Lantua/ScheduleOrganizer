@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F77AE8B91F78D53A008B6B57 /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77AE8B81F78D53A008B6B57 /* Courses.swift */; };
 		F77AE8BB1F78D724008B6B57 /* CourseClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77AE8BA1F78D724008B6B57 /* CourseClassification.swift */; };
+		F77AE8BD1F78F6E5008B6B57 /* HTMLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77AE8BC1F78F6E5008B6B57 /* HTMLLoader.swift */; };
 		F7ECCADB1F7899C600376D7F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECCADA1F7899C600376D7F /* main.swift */; };
 		F7ECCAE21F789B9900376D7F /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ECCAE11F789B9900376D7F /* Enumeration.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		F77AE8B81F78D53A008B6B57 /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		F77AE8BA1F78D724008B6B57 /* CourseClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassification.swift; sourceTree = "<group>"; };
+		F77AE8BC1F78F6E5008B6B57 /* HTMLLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLLoader.swift; sourceTree = "<group>"; };
 		F7ECCAD71F7899C600376D7F /* ScheduleOrganizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ScheduleOrganizer; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7ECCADA1F7899C600376D7F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F7ECCAE11F789B9900376D7F /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				F7ECCAE11F789B9900376D7F /* Enumeration.swift */,
 				F77AE8B81F78D53A008B6B57 /* Courses.swift */,
 				F77AE8BA1F78D724008B6B57 /* CourseClassification.swift */,
+				F77AE8BC1F78F6E5008B6B57 /* HTMLLoader.swift */,
 			);
 			path = ScheduleOrganizer;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				F7ECCADB1F7899C600376D7F /* main.swift in Sources */,
 				F7ECCAE21F789B9900376D7F /* Enumeration.swift in Sources */,
+				F77AE8BD1F78F6E5008B6B57 /* HTMLLoader.swift in Sources */,
 				F77AE8BB1F78D724008B6B57 /* CourseClassification.swift in Sources */,
 				F77AE8B91F78D53A008B6B57 /* Courses.swift in Sources */,
 			);
