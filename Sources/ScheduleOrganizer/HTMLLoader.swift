@@ -18,8 +18,7 @@ func loadSlots(from url: String, courses: Set<String>) -> [SectionTimeSlot] {
 }
 
 private func slots(from content: String, courses: Set<String>) -> [SectionTimeSlot] {
-    return texts(inside: "tr", text: content).flatMap {
-        row -> SectionTimeSlot? in
+    return texts(inside: "tr", text: content).compactMap { row in
         parse(text: row, courses: courses)
     }
 }
@@ -28,8 +27,7 @@ private func texts(inside innermostTag: String, text: String) -> [String] {
     let regex = try! NSRegularExpression(pattern: "<\(innermostTag)\\b[^>]*+>(.*?)</\(innermostTag)\\b", options: [.dotMatchesLineSeparators, .caseInsensitive])
     let utf16 = text.utf16
     
-    return regex.matches(in: text, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: utf16.count)).flatMap {
-        result -> String? in
+    return regex.matches(in: text, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: utf16.count)).compactMap { result in
         guard result.numberOfRanges == 2 else {
             return nil
         }

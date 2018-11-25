@@ -15,15 +15,15 @@ let slots = loadSlots(from: url, courses: courses)
 print("Calculating")
 
 let enums = enumerations(for: slots)
-let courseEnums = Enumeration.all(courses.map({ enums[$0]! }))
+let courseEnums = AllAnyTree.all(courses.map { enums[$0]! })
 
 var result: (Double, [[SectionTimeSlot]]) = (Double.infinity, [])
 let (collision, selections) = courseEnums.reduce(into: result) {
     (result, slots) in
     let threshold = result.0
     var collision = 0.0
-    for slot1 in slots {
-        for slot2 in slots where slot1 != slot2 {
+    for (pivot, slot1) in slots.enumerated() {
+        for slot2 in slots[..<pivot] where slot1.section != slot2.section {
             collision += collidingMinutes(slot1.slot, slot2.slot)
             if collision > threshold { return }
         }
