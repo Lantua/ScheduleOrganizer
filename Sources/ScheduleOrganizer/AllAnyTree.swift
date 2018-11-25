@@ -37,6 +37,9 @@ private struct AllTreeIterator<T>: IteratorProtocol {
         sources = array
         iterators = sources.map { $0.makeIterator() }
         values = iterators.map { $0.next() } as? [[T]]
+        if values?.isEmpty ?? false {
+            values = nil
+        }
     }
     
     mutating func next() -> [T]? {
